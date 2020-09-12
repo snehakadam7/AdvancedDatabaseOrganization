@@ -1,0 +1,13 @@
+Some comments:
+
+1. If you define the file pointer as a global variable, can it manage multiple files at the same time? 
+Hint: put the file pointer to fHandle->mgmtInfo
+
+2. In destroyPageFile(), filepointer != NULL means the file is open. What if the file is not open but you want to destroy it? 
+Hint: try access(fileName, F_OK) == -1
+
+3. You defined a header_offset to store total size. Is that efficient? For example, if you want to add more metadata, you need to shift the content. Additionally, the header_offset renders disalignment between your blocks and the file blocks. If the block size in disk is the same with PAGE_SIZE (4096). How many actual I/O does your readBlock() cost? 
+Hint: reserve a whole page for header.
+
+Good job for your additionaly testcases. 
+You grades will be available in Blackboard later after I graded other students assignment. 
